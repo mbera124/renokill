@@ -64,7 +64,7 @@
             >
             <a href="#" class="text-secondary"
               ><i class="fas fa-envelope me-2 text-dark"></i
-              >renokill@gmail.com</a
+              >renokill254@gmail.com</a
             >
           </div>
           <div class="text-end pe-4 me-4 border-end border-dark search-btn">
@@ -91,7 +91,7 @@
           <div
             class="d-flex align-items-center justify-content-center topbar-icon"
           >
-            <a href="#" class="me-4"
+            <!-- <a href="#" class="me-4"
               ><i class="fab fa-facebook-f text-dark"></i
             ></a>
             <a href="#" class="me-4"
@@ -99,10 +99,8 @@
             ></a>
             <a href="#" class="me-4"
               ><i class="fab fa-instagram text-dark"></i
-            ></a>
-            <a href="#" class=""
-              ><i class="fab fa-linkedin-in text-dark"></i
-            ></a>
+            ></a> -->
+            <a href="https://wa.me/254718613242" target="_blank" class="btn btn-primary rounded-circle me-3 copyright-icon"><i class='fab fa-whatsapp-square' style='font-size:24px;color:green'></i></a>
           </div>
         </div>
       </div>
@@ -129,7 +127,7 @@
           </button>
           <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
             <div class="navbar-nav ms-auto">
-              <a href="index.html" class="nav-item nav-link active">Home</a>
+              <!-- <a href="index.html" class="nav-item nav-link active">Home</a> -->
               <!-- <a href="about.html" class="nav-item nav-link">About</a>
               <a href="service.html" class="nav-item nav-link">Services</a> -->
               <!-- <a href="project.html" class="nav-item nav-link">Projects</a> -->
@@ -190,14 +188,14 @@
                 <h1 class="text-white display-1 mb-4 animated slideInDown">
                   Enjoy Your Home Totally Pest Free
                 </h1>
-                <a href="" class="me-2"
+                <!-- <a href="" class="me-2"
                   ><button
                     type="button"
                     class="px-5 py-3 btn btn-primary border-2 rounded-pill animated slideInDown"
                   >
                     Read More
                   </button></a
-                >
+                > -->
               </div>
             </div>
           </div>
@@ -265,22 +263,22 @@
                       <option value="Type Of Service" class="">
                         Type Of Service
                       </option>
-                      <option value="Pest Control-2">
+                      <option value="Fumigation-pest control">
                         Fumigation-pest control
                       </option>
-                      <option value="Pest Control-3">
+                      <option value="Vikane-fumigation-effective gas treat">
                         Vikane-fumigation-effective gas treat
                       </option>
-                      <option value="Pest Control-4">
+                      <option value="methyl bromide fumigation-complete rodent eradication">
                         methyl bromide fumigation-complete rodent eradication
                       </option>
-                      <option value="Pest Control-5">
+                      <option value="phosphine fumigation-food focus safety">
                         phosphine fumigation-food focus safety
                       </option>
-                      <option value="Pest Control-6">
+                      <option value="formaldehyde fumigation-poweful contact kill">
                         formaldehyde fumigation-poweful contact kill
                       </option>
-                      <option value="Pest Control-6">cleaning</option>
+                      <option value="cleaning">cleaning</option>
                     </select>
                   </div>
                   <div class="col-md-6 col-xl-3">
@@ -310,8 +308,9 @@
                 <input
                   type="button"
                   class="btn btn-primary w-100 p-3 border-0"
-                  value="GET STARTED"
-                />
+                  value="REQUEST SERVICE"
+                  onclick="sendToWhatsApp()"
+                  />
               </div>
             </div>
           </form>
@@ -1400,7 +1399,7 @@
               <a
                 href=""
                 class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"
-                ><i class="fa fa-envelope me-3"></i>renokill@gmail.com</a
+                ><i class="fa fa-envelope me-3"></i>renokill254@gmail.com</a
               >
             </div>
           </div>
@@ -1422,7 +1421,7 @@
           <div
             class="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0"
           >
-            <a
+            <!-- <a
               class="btn btn-primary rounded-circle me-3 copyright-icon"
               href=""
               ><i class="fab fa-twitter"></i
@@ -1431,8 +1430,10 @@
               class="btn btn-primary rounded-circle me-3 copyright-icon"
               href=""
               ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
+            ></a> -->
+            <a href="https://wa.me/254718613242" target="_blank" class="btn btn-primary rounded-circle me-3 copyright-icon"><i class='fab fa-whatsapp-square' style='font-size:24px;color:green'></i></a>
+
+            <!-- <a
               class="btn btn-primary rounded-circle me-3 copyright-icon"
               href=""
               ><i class="fab fa-youtube"></i
@@ -1441,7 +1442,7 @@
               class="btn btn-primary rounded-circle me-3 copyright-icon"
               href=""
               ><i class="fab fa-linkedin-in"></i
-            ></a>
+            ></a> -->
           </div>
           <div class="col-md-4 my-auto text-center text-md-end text-white">
             Designed By
@@ -1465,7 +1466,31 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      function sendToWhatsApp() {
+        let service = document.querySelector("select").value;
+        let name = document.querySelector('input[placeholder="Name"]').value;
+        let phone = document.querySelector('input[placeholder="Phone"]').value;
+        let email = document.querySelector('input[placeholder="Email"]').value;
+    
+        // Validate fields
+        if (!name || !phone || !email || service === "Type Of Service") {
+          alert("Please fill in all fields and select a valid service.");
+          return;
+        }
+    
+        // Format WhatsApp message
+        let message = `Hello, I am interested in ${service}.%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}`;
+    
+        // WhatsApp URL
+        let whatsappUrl = `https://wa.me/254718613242?text=${message}`;
+    
+        // Open WhatsApp chat
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+    
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
   </body>
